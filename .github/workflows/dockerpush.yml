@@ -26,9 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run tests
+      - name: Run tests mvn
         run: |
           mvn -version
+
+      - name: Run tests
+        run: |
            
           if [ -f docker-compose.test.yml ]; then
             docker-compose --file docker-compose.test.yml build
