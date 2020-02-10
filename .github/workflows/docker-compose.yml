@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Setup ElasticSearch
-      uses: getong/elasticsearch-action@v1
+    - uses: getong/elasticsearch-action@v1
 
   test:
 
