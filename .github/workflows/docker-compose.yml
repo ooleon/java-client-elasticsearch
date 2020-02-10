@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: getong/elasticsearch-action@v1
+    - name: Setup ElasticSearch
+     uses: getong/elasticsearch-action@v1
       with:
         # Version of elasticsearch to use
         elasticsearch version: # optional, default is latest
@@ -19,7 +20,6 @@ jobs:
         container port: # optional, default is 9200
         # the discovery.type envionment
         discovery type: # optional, default is single-node
-    - name: Setup ElasticSearch
 
   test:
 
