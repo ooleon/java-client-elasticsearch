@@ -4,6 +4,23 @@ on: [push]
 
 jobs:
 
+  ElasticSearch:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup ElasticSearch
+      uses: getong/elasticsearch-action@v1
+      with:
+        # Version of elasticsearch to use
+        elasticsearch version: # optional, default is latest
+        # The port of host
+        host port: # optional, default is 9200
+        # The port of container
+        container port: # optional, default is 9200
+        # the discovery.type envionment
+        discovery type: # optional, default is single-node
+
   test:
 
     runs-on: ubuntu-latest
@@ -21,3 +38,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+
+
