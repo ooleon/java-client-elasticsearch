@@ -22,8 +22,10 @@ jobs:
     - name: Run the Docker image curl elastic
       run: curl -u elastic http://127.0.0.1:9200/_cat/health
 
-    - name: Run the Docker image Test
+    - name: Up  work's Directory
       run: cd ..
+
+    - name: Run the Docker image Test
       run: ls -l
 
     - name: Run the Docker image ESMainTest
