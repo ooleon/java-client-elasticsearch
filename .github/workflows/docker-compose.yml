@@ -16,11 +16,14 @@ jobs:
         container port: 9200
         discovery type: 'single-node'
     
-    - name: Run the Docker image ElasticSearch1
+    - name: Run the Docker image mvn -v
       run: mvn -v
 
     - name: Up  work's Directory
-      run: cd ..
+      run: cd .. \
+            && ls -l \
+            && pwd \
+            && mvn -v
 
     - name: Run the Docker image Test
       run: ls -l
