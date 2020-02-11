@@ -24,7 +24,7 @@ jobs:
 
     - name: Run the Docker image Test
       run: cd ..
-      and: ls -l
+      run: ls -l
 
     - name: Run the Docker image ESMainTest
       run: mvn test -Dtest=ESMainTest test
