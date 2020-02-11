@@ -36,9 +36,6 @@ jobs:
 
     steps:
     - uses: getong/elasticsearch-action@v1
-      with:
-        # Version of elasticsearch to use
-        elasticsearch version: 5.6.16  # optional, default is latest
     - name: Run the Docker image ElasticSearch1
       run: elasticSearch
 
