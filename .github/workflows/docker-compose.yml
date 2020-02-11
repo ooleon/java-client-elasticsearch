@@ -31,13 +31,13 @@ jobs:
     - with:
         # Version of elasticsearch to use
          # optional, default is latest
-        elasticsearch version:
+    -   elasticsearch version:
         # The port of host
-        host port: # optional, default is 9200
+    -   host port: # optional, default is 9200
         # The port of container
-        container port: # optional, default is 9200
+    -   container port: # optional, default is 9200
         # the discovery.type envionment
-        discovery type: # optional, default is single-node
+    -   discovery type: # optional, default is single-node
       run: mvn -v
 
   test:
