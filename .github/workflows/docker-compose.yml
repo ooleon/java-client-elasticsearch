@@ -21,9 +21,10 @@ jobs:
 
     - name: Up  work's Directory
       run: cd .. 
-            & ls -l \
-            & pwd \
-            & mvn -v
+          & cd .. 
+          & pwd
+          & ls -l /home/runner/work/java-client-elasticsearch \
+          & pwd 
 
     - name: Run the Docker image Test
       run: ls -l
@@ -45,7 +46,12 @@ jobs:
 #    - uses: getong/elasticsearch-action@v1
     - uses: actions/checkout@v2
     - name: Test the Docker image through mvn
-      run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run:  cd .. 
+          & cd .. 
+          & pwd
+          & ls -l /home/runner/work/java-client-elasticsearch \
+          & pwd 
+          & mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
 
     # - name: Run tests
