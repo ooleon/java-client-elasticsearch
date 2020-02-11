@@ -13,7 +13,7 @@ jobs:
       uses: getong/elasticsearch-action@v1
       with:
         # Version of elasticsearch to use
-        elasticsearch version: 5.6.16  # optional, default is latest
+        elasticsearch version: #5.6.16  # optional, default is latest
         # The port of host
         host port: # optional, default is 9200
         # The port of container
@@ -35,9 +35,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: getong/elasticsearch-action@v1
     - name: Run the Docker image ElasticSearch1
-      run: elasticSearch
+#    - uses: getong/elasticsearch-action@v1
+#      run: elasticSearch
 
     #  run: docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
