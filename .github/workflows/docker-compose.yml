@@ -20,7 +20,7 @@ jobs:
       run: mvn -v
 
     - name: Up  work's Directory
-      run: cd .. \
+      run: cd .. 
             && ls -l \
             && pwd \
             && mvn -v
