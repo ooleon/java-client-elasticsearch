@@ -20,7 +20,7 @@ jobs:
       run: mvn -v
 
     - name: Run the Docker image curl elastic
-      run: curl -u elastic http://127.0.0.1:9200/_cat/health
+      run: curl -u elastic:elastic http://127.0.0.1:9200/_cat/health
 
     - name: Up  work's Directory
       run: cd ..
