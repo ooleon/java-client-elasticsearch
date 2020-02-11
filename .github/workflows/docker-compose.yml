@@ -37,4 +37,4 @@ jobs:
     steps:
     - uses: getong/elasticsearch-action@v1
     - name: Pull the Docker image ElasticSearch1
-      run: docker pull docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+    - run: docker pull docker.elastic.co/elasticsearch/elasticsearch:5.6.16

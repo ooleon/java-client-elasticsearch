@@ -23,7 +23,7 @@ FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
     # ADD etc/diamond/collectors/ElasticSearchCollector.conf /etc/diamond/collectors/ElasticSearchCollector.conf 
 
 # elasticsearch
-RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch
+RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
 # test elasticsearch
 RUN curl -u elastic http://127.0.0.1:9200/_cat/health
