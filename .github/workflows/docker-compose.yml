@@ -22,24 +22,6 @@ jobs:
         discovery type: # optional, default is single-node
       #run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-  ElasticSearch0:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Setup ElasticSearch 0
-    - uses: getong/elasticsearch-action@v1
-      with:
-        # Version of elasticsearch to use
-        elasticsearch version: 5.6.16 # optional, default is latest
-        # The port of host
-        host port: # optional, default is 9200
-        # The port of container
-        container port: # optional, default is 9200
-        # the discovery.type envionment
-        discovery type: # optional, default is single-node
-      #run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
   test:
 
     runs-on: ubuntu-latest
