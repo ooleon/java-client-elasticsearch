@@ -20,7 +20,7 @@ jobs:
         container port: # optional, default is 9200
         # the discovery.type envionment
         discovery type: # optional, default is single-node
-      run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      #run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
   ElasticSearch0:
 
@@ -29,16 +29,16 @@ jobs:
     steps:
     - name: Setup ElasticSearch 0
     - uses: getong/elasticsearch-action@v1
-    - with:
+      with:
         # Version of elasticsearch to use
-        elasticsearch version: # optional, default is latest
+        elasticsearch version:5.6.16 # optional, default is latest
         # The port of host
         host port: # optional, default is 9200
         # The port of container
         container port: # optional, default is 9200
         # the discovery.type envionment
         discovery type: # optional, default is single-node
-      run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      #run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
   test:
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
     - name: Test the Docker image through mvn
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
       run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
   ElasticSearch1:
