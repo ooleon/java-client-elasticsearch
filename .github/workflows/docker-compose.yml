@@ -27,6 +27,7 @@ jobs:
 
     steps:
     - name: Setup ElasticSearch 0
+    - run: mvn -v
     - uses: getong/elasticsearch-action@v1
     - with:
         # Version of elasticsearch to use
@@ -38,7 +39,7 @@ jobs:
     -   container port: # optional, default is 9200
         # the discovery.type envionment
     -   discovery type: # optional, default is single-node
-      run: mvn -v
+      
 
   test:
 
