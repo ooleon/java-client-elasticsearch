@@ -21,7 +21,7 @@ jobs:
         # the discovery.type envionment
         discovery type: # optional, default is single-node
 
-  ElasticSearch_5.6.16:
+  ElasticSearch5616:
 
     runs-on: ubuntu-latest
 
