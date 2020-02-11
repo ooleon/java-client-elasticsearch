@@ -19,9 +19,6 @@ jobs:
     - name: Run the Docker image ElasticSearch1
       run: mvn -v
 
-    - name: Run the Docker image curl elastic
-      run: curl -u elastic:elastic http://127.0.0.1:9200/_cat/health
-
     - name: Up  work's Directory
       run: cd ..
 
@@ -30,6 +27,10 @@ jobs:
 
     - name: Run the Docker image ESMainTest
       run: mvn test -Dtest=ESMainTest test
+
+    - name: Run the Docker image curl elastic
+      run: curl http://127.0.0.1:9200/_cat/health
+
 
 #      run: docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
