@@ -2,21 +2,7 @@ name: Docker Image CI
 
 on: [push]
 
-jobs:
-
-  ElasticSearch1:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: getong/elasticsearch-action@v1
-      with:
-        elasticsearch version: '5.6.166'
-        host port: 9200
-        container port: 9200
-        discovery type: 'single-node'
-    - name: Run the Docker image ElasticSearch1
-      run: docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+jobs:      
 
   test:
 
@@ -26,7 +12,21 @@ jobs:
 #    - uses: getong/elasticsearch-action@v1
     - uses: actions/checkout@v2
     - name: Test the Docker image through mvn
-      run: mvn -version #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+
+  ElasticSearch1:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: getong/elasticsearch-action@v1
+      with:
+        elasticsearch version: '5.6.16'
+        host port: 9200
+        container port: 9200
+        discovery type: 'single-node'
+    - name: Run the Docker image ElasticSearch1
+      run: docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
   # build:
 
