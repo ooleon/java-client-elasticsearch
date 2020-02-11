@@ -15,8 +15,14 @@ jobs:
         host port: 9200
         container port: 9200
         discovery type: 'single-node'
+    
     - name: Run the Docker image ElasticSearch1
-      run: docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+    - run: mvn -v
+
+    - name: Run the Docker image ESMainTest
+    - run: mvn test -Dtest=ESMainTest test
+
+#      run: docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
   test:
 
