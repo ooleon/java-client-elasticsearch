@@ -11,14 +11,23 @@ jobs:
     steps:
     - name: Setup ElasticSearch
     - uses: getong/elasticsearch-action@v1
+      with:
+        # Version of elasticsearch to use
+        elasticsearch version: # optional, default is latest
+        # The port of host
+        host port: # optional, default is 9200
+        # The port of container
+        container port: # optional, default is 9200
+        # the discovery.type envionment
+        discovery type: # optional, default is single-node
 
   test:
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Test the Docker image through mvn
     - uses: actions/checkout@v1
+    - name: Test the Docker image through mvn
       run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
   build:
