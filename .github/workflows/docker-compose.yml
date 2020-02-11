@@ -21,9 +21,9 @@ jobs:
 
     - name: Up  work's Directory
       run: cd .. 
-            && ls -l \
-            && pwd \
-            && mvn -v
+            & ls -l \
+            & pwd \
+            & mvn -v
 
     - name: Run the Docker image Test
       run: ls -l
