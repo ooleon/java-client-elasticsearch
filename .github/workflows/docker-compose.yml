@@ -14,6 +14,26 @@ jobs:
     - name: Test the Docker image through mvn
       run: mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
+    - name: Run tests
+      run: |
+        if [ -f docker-compose.test.yml ]; then
+          docker-compose --file docker-compose.test.yml build
+          docker-compose --file docker-compose.test.yml run sut
+        else
+          docker build . --file Dockerfile
+        fi
+
+
+    - name: Run tests
+      run: |
+        if [ -f docker-compose.test.yml ]; then
+          docker-compose --file docker-compose.test.yml build
+          docker-compose --file docker-compose.test.yml run sut
+        else
+          docker build . --file Dockerfile
+        fi
+
+
   ElasticSearch1:
 
     runs-on: ubuntu-latest
