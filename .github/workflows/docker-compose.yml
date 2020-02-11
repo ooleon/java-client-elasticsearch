@@ -28,7 +28,7 @@ jobs:
     steps:
     - name: Setup ElasticSearch 0
     - uses: getong/elasticsearch-action@v1
-      with:
+    -  with:
         # Version of elasticsearch to use
          # optional, default is latest
         elasticsearch version:
