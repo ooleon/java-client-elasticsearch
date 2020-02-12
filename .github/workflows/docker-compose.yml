@@ -19,6 +19,23 @@ jobs:
     - name: Run the Docker image mvn -v
       run: mvn -v
 
+    - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+    - name: Test pwd
+      run: pwd
+
+    - name: Changing WORKDIR source code /home/runner/work/java-client-elasticsearch
+      run: cd /home/runner/work/java-client-elasticsearch
+
+    - name: Test ls -l
+      run: ls -l
+
+    - name: Test mvn
+      run: mvn test -Dtest=ESMainTest test
+
     - name: Up  work's Directory
       run:  ls -l
           & cd /home/runner/work
@@ -51,12 +68,16 @@ jobs:
     steps:
 #    - uses: getong/elasticsearch-action@v1
     - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
     - name: Test pwd
       run: pwd
 
-    - name: Cambiando a directorio de codigo /home/runner/work/java-client-elasticsearch
+    - name: Changing WORKDIR source code /home/runner/work/java-client-elasticsearch
       run: cd /home/runner/work/java-client-elasticsearch
-      
+
     - name: Test ls -l
       run: ls -l
 
