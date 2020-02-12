@@ -44,7 +44,8 @@ jobs:
 
   test:
 
-    runs-on: ubuntu-latest
+    runs-on: maven:alpine
+    #ubuntu-latest
 
     steps:
 #    - uses: getong/elasticsearch-action@v1

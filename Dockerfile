@@ -2,7 +2,26 @@
 FROM maven:alpine
 #FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
-#LABEL maintainer "https://github.com/blacktop"
+LABEL maintainer "https://github.com/ooleon"
+
+
+# elasticsearch
+#RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+
+# test elasticsearch
+# RUN curl -u elastic http://127.0.0.1:9200/_cat/health
+
+# Run the Docker image ESMainTest
+# RUN mvn test -Dtest=ESMainTest test
+WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch
+
+RUN pwd
+
+WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch
+
+RUN pwd
+
+RUN mvn test -Dtest=ESMainTest test
 
 #RUN apk add --no-cache openjdk8-jre tini su-exec
 
@@ -22,15 +41,3 @@ FROM maven:alpine
     # ADD etc/supervisord.d/elasticsearch.ini /etc/supervisord.d/elasticsearch.ini
     # # diamond collector
     # ADD etc/diamond/collectors/ElasticSearchCollector.conf /etc/diamond/collectors/ElasticSearchCollector.conf 
-
-# elasticsearch
-#RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:5.6.16
-
-# test elasticsearch
-# RUN curl -u elastic http://127.0.0.1:9200/_cat/health
-
-# Run the Docker image ESMainTest
-# RUN mvn test -Dtest=ESMainTest test
-RUN pwd
-
-RUN mvn test -Dtest=ESMainTest test
