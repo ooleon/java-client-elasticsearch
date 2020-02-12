@@ -1,5 +1,6 @@
 ### Docker Image
-FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+FROM maven:alpine
+#FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
 #LABEL maintainer "https://github.com/blacktop"
 
