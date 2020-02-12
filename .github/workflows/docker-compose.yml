@@ -54,11 +54,14 @@ jobs:
     - name: Test pwd
       run: pwd
 
-    - name: Test cd
-      run: cd /home/runner/work/java-client-elasticsearch 
+    - name: Cambiando a directorio de codigo /home/runner/work/java-client-elasticsearch
+      run: cd /home/runner/work/java-client-elasticsearch
+      
+    - name: Test ls -l
+      run: ls -l
 
-    - name: Test cd
-      run: ls -l  
+    - name: Test mvn
+      run: mvn test -Dtest=ESMainTest test
           #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
 
