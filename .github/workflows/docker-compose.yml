@@ -9,43 +9,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: actions/checkout
+    - name: actions/checkout v2
       uses: actions/checkout@v2
+
+    - name: Download Spring Boot (mvn)
+      run: mvn test -B -Dtest=ESMainTest test
 
     - uses: getong/elasticsearch-action@v1
       with:
         elasticsearch version: '5.6.16'
         host port: 9200
-        container port: 9200
+        container port: 9300
         discovery type: 'single-node'
     
-    - name: Run the Docker image mvn -v
-      run: mvn -v
+    # - name: Run the Docker image mvn -v
+    #   run: mvn -v
 
-    - name: Test pwd
-      run: pwd
+    # - name: Test pwd
+    #   run: pwd
 
     - name: Changing WORKDIR source code /home/runner/work/java-client-elasticsearch
       run: cd /home/runner/work/java-client-elasticsearch
 
-    - name: Test ls -l
+    - name: Run ls Test
       run: ls -l
-
-    - name: Test mvn
-      run: mvn test -Dtest=ESMainTest test
            #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-    - name: Run the Docker image Test
-      run: ls -l
+    - name: Run the mvn ESMainTest
+      run: mvn test -B -Dtest=ESMainTest test
 
-    - name: Run the Docker image ESMainTest
-      run: mvn test -Dtest=ESMainTest test
+
+    - name: Run ss -tulw
+      run: ss -tulw
 
     - name: Run curl elastic cat/health verbose
       run: curl http://127.0.0.1:9200/_cat/health?v
 
-    - name: Run curl elastic cat/status verbose
-      run: curl http://127.0.0.1:9200/_cat/status?v
+    - name: Run curl elastic cat/status
+      run: curl http://127.0.0.1:9200/_cat/status
+
+    - name: Run curl elastic 9300 cat/status
+      run: curl http://127.0.0.1:9300/_cat/status
 
     - name: Up  work's Directory
       run:  ls -l
@@ -85,7 +89,7 @@ jobs:
       run: ls -l
 
     - name: Test mvn
-      run: mvn test -Dtest=ESMainTest test
+      run: mvn test -B -Dtest=ESMainTest test
           #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - uses: getong/elasticsearch-action@v1
       with:
@@ -95,13 +99,13 @@ jobs:
         discovery type: 'single-node'
     
     - name: Test mvn
-      run: mvn test -Dtest=ESMainTest test
+      run: mvn test -B -Dtest=ESMainTest test
 
     - name: Run curl elastic cat/health verbose
       run: curl http://127.0.0.1:9200/_cat/health?v
 
-    - name: Run curl elastic cat/status verbose
-      run: curl http://127.0.0.1:9200/_cat/status?v
+    - name: Run curl elastic cat/status
+      run: curl http://127.0.0.1:9200/_cat/status
 
 
     # - name: Run tests
