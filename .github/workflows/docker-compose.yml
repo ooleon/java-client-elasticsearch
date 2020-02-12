@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: actions/checkout
+      uses: actions/checkout@v2
+
     - uses: getong/elasticsearch-action@v1
       with:
         elasticsearch version: '5.6.16'
@@ -82,6 +85,15 @@ jobs:
     - name: Test mvn
       run: mvn test -Dtest=ESMainTest test
           #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - uses: getong/elasticsearch-action@v1
+      with:
+        elasticsearch version: '5.6.16'
+        host port: 9200
+        container port: 9200
+        discovery type: 'single-node'
+    
+    - name: Test mvn
+      run: mvn test -Dtest=ESMainTest test
 
 
     # - name: Run tests
