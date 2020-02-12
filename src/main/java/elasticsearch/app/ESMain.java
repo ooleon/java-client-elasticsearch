@@ -58,7 +58,7 @@ public class ESMain {
 		{
 			ESTransportClient esTransportClient = new ESTransportClient();
 			Client client = esTransportClient.getClient(
-					"my-application", "127.0.0.1", 9300).get();
+					"elasticsearch", "127.0.0.1", 9300).get();
 
 			CountService countService = new CountService(client);
 			DataService dataService = new DataService(client);
