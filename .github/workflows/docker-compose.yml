@@ -51,9 +51,12 @@ jobs:
     steps:
 #    - uses: getong/elasticsearch-action@v1
     - uses: actions/checkout@v2
-    - name: Test the Docker image through mvn
+    - name: Test pwd
       run: pwd
+
+    - name: Test cd
       run: cd /home/runner/work/java-client-elasticsearch 
+
       run: ls -l  
           #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
