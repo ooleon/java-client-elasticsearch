@@ -2,8 +2,7 @@
 FROM maven:alpine
 #FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
-LABEL maintainer "https://github.com/ooleon"
-
+#LABEL maintainer "https://github.com/ooleon"
 
 # elasticsearch
 #RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:5.6.16
@@ -13,13 +12,17 @@ LABEL maintainer "https://github.com/ooleon"
 
 # Run the Docker image ESMainTest
 # RUN mvn test -Dtest=ESMainTest test
+WORKDIR /home/runner/work/java-client-elasticsearch/
+
+RUN pwd
+
+RUN ls -l
+
 WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch
 
 RUN pwd
 
-WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch
-
-RUN pwd
+RUN ls -l
 
 RUN mvn test -Dtest=ESMainTest test
 

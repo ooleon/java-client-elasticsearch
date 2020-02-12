@@ -44,16 +44,18 @@ jobs:
 
   test:
 
-    runs-on: maven:alpine
+    runs-on: ubuntu-latest
+    #maven:alpine
     #ubuntu-latest
 
     steps:
 #    - uses: getong/elasticsearch-action@v1
     - uses: actions/checkout@v2
     - name: Test the Docker image through mvn
-      run:  cd /home/runner/work/java-client-elasticsearch 
-          & ls -l  
-          & mvn -v #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: pwd
+      run: cd /home/runner/work/java-client-elasticsearch 
+      run: ls -l  
+          #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
 
     # - name: Run tests
