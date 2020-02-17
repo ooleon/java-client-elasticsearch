@@ -42,12 +42,6 @@ jobs:
     - name: Run ss -tulw (1)
       run: ss -tulw
 
-    - name: expose port
-      run: expose 9200
-
-    - name: expose port
-      run: expose 9300
-
     - name: Run ss -tulw (2)
       run: ss -tulw
 
@@ -79,7 +73,7 @@ jobs:
     # ubuntu-latest
 
     steps:
-#    - uses: getong/elasticsearch-action@v1
+   # - uses: getong/elasticsearch-action@v1
     - name: actions/checkout v2
       uses: actions/checkout@v2
 
@@ -129,13 +123,13 @@ jobs:
     #     fi
 
 
-  # build:
+    # build:
 
-  #   runs-on: ubuntu-latest
+    #   runs-on: ubuntu-latest
 
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image
-  #     run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    #   steps:
+    #   - uses: actions/checkout@v2
+    #   - name: Build the Docker image
+    #     run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
 

@@ -1,8 +1,8 @@
 ### Docker Image
-FROM maven:alpine
-#FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+#FROM maven:alpine
+FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
-#LABEL maintainer "https://github.com/ooleon"
+LABEL maintainer "https://github.com/ooleon"
 
 # elasticsearch
 #RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:5.6.16
