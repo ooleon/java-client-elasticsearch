@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker elasticsearch-action@v1 Image CI
 
 on: [push]
 
@@ -39,7 +39,15 @@ jobs:
       run: mvn test -B -Dtest=ESMainTest test
 
 
-    - name: Run ss -tulw
+    - name: Run ss -tulw (1)
+      run: ss -tulw
+
+    - name: expose port
+      expose:
+      - "9200"
+      - "9300"
+
+    - name: Run ss -tulw (2)
       run: ss -tulw
 
     - name: Run curl elastic cat/health verbose
