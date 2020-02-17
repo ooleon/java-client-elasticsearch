@@ -101,22 +101,6 @@ jobs:
       run: mvn test -B -Dtest=ESMainTest test
           #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-    - name: docker-compose.test
-      run: |
-        if [ -f docker-compose.test.yml ]; then
-          docker-compose --file docker-compose.test.yml build
-          docker-compose --file docker-compose.test.yml run sut
-#          else
-#            docker build . --file Dockerfile
-        fi
-
-    - name: Dockerfile
-      run: |
-        if [ -f Dockerfile ]; then
-          docker build . --file Dockerfile
-#          else
-#            docker build . --file Dockerfile
-        fi
 
     - uses: getong/elasticsearch-action@v1
       with:
