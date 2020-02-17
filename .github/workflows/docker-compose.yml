@@ -9,11 +9,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: pwd
+      run: pwd
+
+    - name: Run ls Test
+      run: ls -l
+
     - name: actions/checkout v2
       uses: actions/checkout@v2
 
+    - name: Run ls Test
+      run: ls -l
+
     - name: Download Spring Boot (mvn)
       run: mvn test -B -Dtest=ESMainTest test
+
+    - name: pwd
+      run: pwd
+
+    - name: Run ls Test
+      run: ls -l
 
     - uses: getong/elasticsearch-action@v1
       with:
@@ -22,6 +37,9 @@ jobs:
         container port: 9300
         discovery type: 'single-node'
     
+    - name: Run ls Test
+      run: ls -l
+
     # - name: Run the Docker image mvn -v
     #   run: mvn -v
 
@@ -38,6 +56,23 @@ jobs:
     - name: Run the mvn ESMainTest
       run: mvn test -B -Dtest=ESMainTest test
 
+    - name: Run ls Test /home/
+      run: ls -l /home/
+
+    - name: Run ls Test /home/runner/
+      run: ls -l /home/runner/
+
+    - name: Run ls Test /home/runner/work/
+      run: ls -l /home/runner/work/
+
+    - name: Run ls Test /home/runner/work/java-client-elasticsearch/
+      run: ls -l /home/runner/work/java-client-elasticsearch/
+
+    - name: Run ls Test /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/
+      run: ls -l /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/
+
+    - name: Run ls Test /github/
+      run: ls -l /github/
 
     - name: Run ss -tulw (1)
       run: ss -tulw
