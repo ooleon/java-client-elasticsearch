@@ -21,10 +21,14 @@ RUN pwd
 
 RUN ls -l
 
-WORKDIR /home/
+RUN  wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
 
-RUN  wget --progress=bar:force -O elasticsearch-$STACK.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$STACK.tar.gz
+RUN ls -l
+
 RUN  tar -xzf elasticsearch-$STACK.tar.gz
+
+RUN ls -l
+
 RUN  mv elasticsearch-$STACK /usr/share/elasticsearch
 
 RUN ls -l
