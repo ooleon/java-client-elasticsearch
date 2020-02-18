@@ -1,31 +1,20 @@
 name: Docker elasticsearch-action@v1 Image CI
 
-on:
-  push:
-    # Publish `master` as Docker `latest` image.
-    branches:
-      - master
+on: [push]
 
-    # Publish `v1.2.3` tags as releases.
-    tags:
-      - v*
-
-  # Run tests for any PRs.
-  pull_request:
-
-env:
-  # TODO: Change variable to your image's name.
-  IMAGE_NAME: docker.elastic.co/elasticsearch/elasticsearch:5.6.16
-  
 jobs:      
 
   ElasticSearch0:
 
-    runs-on: docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+    runs-on: ubuntu-latest
 
     steps:
     - name: pwd
       run: pwd
+      
+    - name: docker build
+      run: docker build . --file Dockerfile
+
 
   ElasticSearch1:
 

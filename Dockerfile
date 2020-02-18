@@ -18,13 +18,13 @@ RUN pwd
 
 RUN ls -l
 
-WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch
+WORKDIR /home/
 
 RUN pwd
 
-RUN ls -l
+RUN ls -lR
 
-RUN mvn test -Dtest=ESMainTest test
+#RUN mvn test -Dtest=ESMainTest test
 
 #RUN apk add --no-cache openjdk8-jre tini su-exec
 
