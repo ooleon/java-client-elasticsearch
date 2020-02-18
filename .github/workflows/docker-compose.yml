@@ -66,9 +66,6 @@ jobs:
     - name: Run ss -tulw (2)
       run: ss -tulw
 
-    - name: docker build
-      run: docker build . --file Dockerfile
-
     - name: Run curl elastic cat/health verbose
       run: curl http://127.0.0.1:9200/_cat/health?v
 
@@ -110,7 +107,16 @@ jobs:
       run: pwd
 
     - name: Changing WORKDIR source code /home/runner/work/java-client-elasticsearch
-      run: cd /home/runner/work/java-client-elasticsearch
+      run: cd /home/runner/work/java-client-elasticsearch/
+
+    - name: pwd
+      run: pwd
+
+    - name: docker build
+      run: docker build . --file Dockerfile
+
+    - name: Changing CD /home/runner/work/java-client-elasticsearch
+      run: cd /home/runner/work/java-client-elasticsearch/elasticsearch-5.6.16/bin/
 
     - name: Test ls -l
       run: ls -l

@@ -31,10 +31,6 @@ RUN  tar -xzf elasticsearch-$STACK.tar.gz
 
 RUN ls -l
 
-RUN  mv elasticsearch-$STACK /usr/share/elasticsearch
-
-RUN ls -l
-
 RUN pwd
 
 RUN ls -lR
