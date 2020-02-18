@@ -62,8 +62,8 @@ jobs:
     - name: Run ls Test /home/runner/
       run: ls -l /home/runner/
 
-    - name: Run ls Test /home/runner/runneradmin/
-      run: ls -l /home/runner/runneradmin/
+    - name: Run ls Test /home/ R
+      run: ls -lR /home/
 
     - name: Run ls Test /home/runner/work/
       run: ls -l /home/runner/work/
@@ -74,11 +74,11 @@ jobs:
     - name: Run ls Test /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/
       run: ls -l /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/
 
-    - name: Run ls Test /github/
-      run: ls -l /github/
-
     - name: Run tree Test /home/
       run: tree -d /home/
+
+    - name: Run ls Test /github/
+      run: ls -l /github/
 
     #- name: Run apt-get install tree
     #  run: apt-get install tree
