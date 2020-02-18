@@ -121,11 +121,14 @@ jobs:
     - name: pwd
       run: pwd
 
+    - name: Changing CD /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
+      run: cd /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
+
     #- name: docker build
     #  run: docker build . --file Dockerfile
 
-    - name: Changing CD /home/runner/work/java-client-elasticsearch
-      run: cd /home/runner/work/java-client-elasticsearch/elasticsearch-5.6.16/bin/
+    - name: Test elasticsearch
+      run: elasticsearch
 
     - name: Test ls -l
       run: ls -l

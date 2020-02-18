@@ -27,13 +27,14 @@ RUN ls -l
 
 RUN cd /home/runner/work/_elasticsearch
 
-RUN wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
+#RUN wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
+WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
 
-RUN ls -l
+RUN elasticsearch
 
-RUN  tar -xzf elasticsearch-$STACK.tar.gz
+#RUN  tar -xzf elasticsearch-$STACK.tar.gz
 
-RUN ls -l
+#RUN ls -l
 
 RUN pwd
 
