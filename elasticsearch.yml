@@ -15,7 +15,7 @@
 # Use a descriptive name for your cluster:
 #
 #cluster.name: my-application
-cluster.name: my-application
+cluster.name: elasticsearch
 #xpack.security.transport.filter.allow: 127.0.0.1
 #xpack.security.enabled: false
 #xpack.security.transport.ssl.enabled: false
@@ -41,7 +41,7 @@ cluster.name: my-application
 # Path to log files:
 #
 #path.logs: /path/to/logs
-path.logs: /home/doc/software/java/elasticsearch/elasticsearch-5.6.16/logs/logs
+path.logs: /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/logs/logs
 #
 # ----------------------------------- Memory -----------------------------------
 #
