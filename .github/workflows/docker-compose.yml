@@ -11,9 +11,7 @@ jobs:
     steps:
     - name: pwd
       run: pwd
-      
-    - name: docker build
-      run: docker build . --file Dockerfile
+
 
 
   ElasticSearch1:
@@ -42,12 +40,15 @@ jobs:
     - name: Run ls Test
       run: ls -l
 
-    #- uses: getong/elasticsearch-action@v1
-    #  with:
-    #    elasticsearch version: '5.6.16'
-    #    host port: 9200
-    #    container port: 9300
-    #    discovery type: 'single-node'
+    - uses: getong/elasticsearch-action@v1
+      with:
+        elasticsearch version: '5.6.16'
+        host port: 9200
+        container port: 9300
+        discovery type: 'single-node'
+
+    - name: docker build
+      run: docker build . --file Dockerfile
 
     - name: Run ls Test
       run: ls -l
@@ -57,9 +58,6 @@ jobs:
 
     # - name: Test pwd
     #   run: pwd
-
-    - name: Changing WORKDIR source code /home/runner/work/java-client-elasticsearch
-      run: cd /home/runner/work/java-client-elasticsearch
 
     - name: Run ls Test
       run: ls -l
