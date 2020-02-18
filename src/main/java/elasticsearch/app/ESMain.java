@@ -24,7 +24,7 @@ public class ESMain {
 	}
 
 	public static String test(){
-		return "paso";
+		return "-> test com sucesso <-";
 	}
 
 	public static void insertData(IngestService ingestService, Client client) {
@@ -58,7 +58,7 @@ public class ESMain {
 		{
 			ESTransportClient esTransportClient = new ESTransportClient();
 			Client client = esTransportClient.getClient(
-					"elasticsearch", "127.0.0.1", 9300).get();
+					"elasticsearch_my_cluster_leo", "127.0.0.1", 9300).get();
 
 			CountService countService = new CountService(client);
 			DataService dataService = new DataService(client);

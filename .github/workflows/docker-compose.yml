@@ -4,7 +4,7 @@ on: [push]
 
 jobs:      
 
-  ElasticSearch1:
+  ElasticSearch_instance:
 
     runs-on: ubuntu-latest
 
@@ -27,12 +27,6 @@ jobs:
     - name: tar tar.gz
       run: tar -xzf elasticsearch-5.6.16.tar.gz
 
-    - name: Run ls R Test
-      run: ls -lR
-
-    - name: Changing CD /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
-      run: cd /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
-
     - name: Run ls Test
       run: ls -l
 
@@ -48,7 +42,7 @@ jobs:
     - name: pwd
       run: pwd
 
-    - name: Test elasticsearch
+    - name: RUN elasticsearch in background
       run: /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/./elasticsearch &
 
     - name: Download Spring Boot (mvn)
@@ -67,9 +61,6 @@ jobs:
     #     container port: 9300
     #     discovery type: 'single-node'
 
-    - name: Run ls Test
-      run: ls -l
-
     # - name: Run the Docker image mvn -v
     #   run: mvn -v
 
@@ -83,17 +74,7 @@ jobs:
     - name: Run the mvn ESMainTest
       run: mvn test -B -Dtest=ESMainTest test
 
-    - name: Run ls Test /home/ R
-      run: ls -lR /home/
-
-
-    #- name: Run apt-get install tree
-    #  run: apt-get install tree
-
-    - name: Run ss -tulw (1)
-      run: ss -tulw
-
-    - name: Run ss -tulw (2)
+    - name: Run ss -tulw (observe the port 9300)
       run: ss -tulw
 
     - name: Run curl elastic cat/health verbose
@@ -104,84 +85,4 @@ jobs:
 
     - name: Run curl elastic 9300 cat/status
       run: curl http://127.0.0.1:9300/_cat/status
-
-    - name: Up  work's Directory
-      run:  ls -l
-          & cd /home/runner/work
-          & ls -l
-          & cd /home/runner/work/java-client-elasticsearch 
-          & ls -l
-          & cd /home/runner/work/java-client-elasticsearch/java-client-elasticsearch
-          & ls -l
-
-
-#      run: docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:5.6.16
-
-  test:
-
-    runs-on: ubuntu-latest
-    # maven:alpine
-    # ubuntu-latest
-
-    steps:
-   # - uses: getong/elasticsearch-action@v1
-    - name: actions/checkout v2
-      uses: actions/checkout@v2
-
-    - name: Set up JDK 1.8 actions/setup-java v1
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-
-    - name: pwd
-      run: pwd
-
-    - name: Changing WORKDIR source code /home/runner/work/java-client-elasticsearch
-      run: cd /home/runner/work/java-client-elasticsearch/
-
-    - name: pwd
-      run: pwd
-
-    - name: Changing CD /home/runner/work/java-client-elasticsearch/java-client-elasticsearch
-      run: cd /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/
-
-    #- name: docker build
-    #  run: docker build . --file Dockerfile
-
-    - name: pwd
-      run: pwd
-
-    - name: Test ls -lR
-      run: ls -lR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/
-
-    - name: Test mvn
-      run: mvn test -B -Dtest=ESMainTest test
-          #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
-    - name: Run curl elastic cat/health verbose
-      run: curl http://127.0.0.1:9200/_cat/health?v
-
-    - name: Run curl elastic cat/status
-      run: curl http://127.0.0.1:9200/_cat/status
-
-
-    # - name: Run tests
-    #   run: |
-    #     if [ -f docker-compose.test.yml ]; then
-    #       docker-compose --file docker-compose.test.yml build
-    #       docker-compose --file docker-compose.test.yml run sut
-    #     else
-    #       docker build . --file Dockerfile
-    #     fi
-
-
-    # build:
-
-    #   runs-on: ubuntu-latest
-
-    #   steps:
-    #   - uses: actions/checkout@v2
-    #   - name: Build the Docker image
-    #     run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
 
