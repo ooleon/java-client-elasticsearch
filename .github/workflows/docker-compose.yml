@@ -9,17 +9,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: actions/checkout v2
+      uses: actions/checkout@v2
+
+    - name: Run ls Test
+      run: ls -l
+
     - name: pwd
       run: pwd
 
     - name: Run ls Test
       run: ls -l
 
-    - name: actions/checkout v2
-      uses: actions/checkout@v2
+    - name: wget tar.gz
+      run: wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
 
-    - name: docker build
-      run: docker build . --file Dockerfile
+    - name: tar tar.gz
+      run: tar -xzf elasticsearch-5.6.16.tar.gz
 
     - name: Run ls Test
       run: ls -l
@@ -115,8 +121,8 @@ jobs:
     - name: pwd
       run: pwd
 
-    - name: docker build
-      run: docker build . --file Dockerfile
+    #- name: docker build
+    #  run: docker build . --file Dockerfile
 
     - name: Changing CD /home/runner/work/java-client-elasticsearch
       run: cd /home/runner/work/java-client-elasticsearch/elasticsearch-5.6.16/bin/

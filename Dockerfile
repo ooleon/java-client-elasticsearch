@@ -19,6 +19,8 @@ WORKDIR /home/runner/work/
 
 RUN mkdir _elasticsearch
 
+RUN chmod 777 _elasticsearch
+
 RUN pwd
 
 RUN ls -l
