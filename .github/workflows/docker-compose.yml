@@ -30,12 +30,14 @@ jobs:
     - name: Run ls Test
       run: ls -l
 
-    - uses: getong/elasticsearch-action@v1
-      with:
-        elasticsearch version: '5.6.16'
-        host port: 9200
-        container port: 9300
-        discovery type: 'single-node'
+    #- uses: getong/elasticsearch-action@v1
+    #  with:
+    #    elasticsearch version: '5.6.16'
+    #    host port: 9200
+    #    container port: 9300
+    #    discovery type: 'single-node'
+    
+    - uses: docker.elastic.co/elasticsearch/elasticsearch:5.6.16
     
     - name: Run ls Test
       run: ls -l
@@ -56,29 +58,9 @@ jobs:
     - name: Run the mvn ESMainTest
       run: mvn test -B -Dtest=ESMainTest test
 
-    - name: Run ls Test /home/
-      run: ls -l /home/
-
-    - name: Run ls Test /home/runner/
-      run: ls -l /home/runner/
-
     - name: Run ls Test /home/ R
       run: ls -lR /home/
 
-    - name: Run ls Test /home/runner/work/
-      run: ls -l /home/runner/work/
-
-    - name: Run ls Test /home/runner/work/java-client-elasticsearch/
-      run: ls -l /home/runner/work/java-client-elasticsearch/
-
-    - name: Run ls Test /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/
-      run: ls -l /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/
-
-    - name: Run tree Test /home/
-      run: tree -d /home/
-
-    - name: Run ls Test /github/
-      run: ls -l /github/
 
     #- name: Run apt-get install tree
     #  run: apt-get install tree
