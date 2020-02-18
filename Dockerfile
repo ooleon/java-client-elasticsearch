@@ -4,7 +4,7 @@ FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
 LABEL maintainer "https://github.com/ooleon"
 
-ENV STACK 5.6.16
+ENV STACK=5.6.16
 
 # elasticsearch
 # RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:5.6.16
