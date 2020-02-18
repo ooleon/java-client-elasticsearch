@@ -1,6 +1,6 @@
 ### Docker Image
-#FROM maven:alpine
-FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+FROM maven:alpine
+#FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
 LABEL maintainer "https://github.com/ooleon"
 
@@ -15,13 +15,15 @@ ENV STACK=5.6.16
 # Run the Docker image ESMainTest
 # RUN mvn test -Dtest=ESMainTest test
 # WORKDIR /home/runner/work/java-client-elasticsearch/
-WORKDIR /home/runner/work/
+# WORKDIR /home/runner/work/
 
 RUN pwd
 
 RUN ls -l
 
-RUN  wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
+RUN cd /tmp
+
+RUN wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
 
 RUN ls -l
 

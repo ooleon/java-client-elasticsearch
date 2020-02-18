@@ -4,16 +4,6 @@ on: [push]
 
 jobs:      
 
-  ElasticSearch0:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: pwd
-      run: pwd
-
-
-
   ElasticSearch1:
 
     runs-on: ubuntu-latest
@@ -47,9 +37,6 @@ jobs:
         container port: 9300
         discovery type: 'single-node'
 
-    - name: docker build
-      run: docker build . --file Dockerfile
-
     - name: Run ls Test
       run: ls -l
 
@@ -78,6 +65,9 @@ jobs:
 
     - name: Run ss -tulw (2)
       run: ss -tulw
+
+    - name: docker build
+      run: docker build . --file Dockerfile
 
     - name: Run curl elastic cat/health verbose
       run: curl http://127.0.0.1:9200/_cat/health?v
