@@ -14,14 +14,16 @@ ENV STACK=5.6.16
 
 # Run the Docker image ESMainTest
 # RUN mvn test -Dtest=ESMainTest test
-WORKDIR /home/runner/work/java-client-elasticsearch/
+WORKDIR /home/runner/work/
 # WORKDIR /home/runner/work/
+
+RUN mkdir _elasticsearch
 
 RUN pwd
 
 RUN ls -l
 
-RUN cd /home/runner/work/java-client-elasticsearch
+RUN cd /home/runner/work/_elasticsearch
 
 RUN wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
 
