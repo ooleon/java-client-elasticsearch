@@ -33,6 +33,12 @@ jobs:
     - name: Changing CD /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
       run: cd /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
 
+    - name: cat elasticsearch.yml
+      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/config/elasticsearch.yml
+
+    - name: Test elasticsearch
+      run: elasticsearch
+
     - name: Download Spring Boot (mvn)
       run: mvn test -B -Dtest=ESMainTest test
 
@@ -129,9 +135,6 @@ jobs:
 
     #- name: docker build
     #  run: docker build . --file Dockerfile
-
-    - name: Test elasticsearch
-      run: elasticsearch
 
     - name: Test ls -l
       run: ls -l
