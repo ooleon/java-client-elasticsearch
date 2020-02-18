@@ -27,8 +27,11 @@ jobs:
     - name: tar tar.gz
       run: tar -xzf elasticsearch-5.6.16.tar.gz
 
-    - name: Run ls Test
-      run: ls -l
+    - name: Run ls R Test
+      run: ls -lR
+
+    - name: Changing CD /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
+      run: cd /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
 
     - name: Download Spring Boot (mvn)
       run: mvn test -B -Dtest=ESMainTest test
@@ -39,12 +42,12 @@ jobs:
     - name: Run ls Test
       run: ls -l
 
-    - uses: getong/elasticsearch-action@v1
-      with:
-        elasticsearch version: '5.6.16'
-        host port: 9200
-        container port: 9300
-        discovery type: 'single-node'
+    # - uses: getong/elasticsearch-action@v1
+    #   with:
+    #     elasticsearch version: '5.6.16'
+    #     host port: 9200
+    #     container port: 9300
+    #     discovery type: 'single-node'
 
     - name: Run ls Test
       run: ls -l
@@ -137,14 +140,6 @@ jobs:
       run: mvn test -B -Dtest=ESMainTest test
           #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-
-    - uses: getong/elasticsearch-action@v1
-      with:
-        elasticsearch version: '5.6.16'
-        host port: 9200
-        container port: 9300
-        discovery type: 'single-node'
-    
     - name: Test mvn
       run: mvn test -B -Dtest=ESMainTest test
 
