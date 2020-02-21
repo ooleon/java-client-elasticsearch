@@ -22,6 +22,7 @@ services:
     command: ingest
     ports:
       - "9200:9200"
+      - "9300:9300"
     links:
      - master:elastic-master
     networks:
