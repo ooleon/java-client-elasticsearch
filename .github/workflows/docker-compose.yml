@@ -81,7 +81,7 @@ jobs:
       run: curl http://127.0.0.1:9200/_cat/health?v
 
     - name: Curl Indices
-    - run: curl http://localhost:9200/_cat/indices
+      run: curl http://localhost:9200/_cat/indices
 
     - name: Run curl elastic cat/status
       run: curl http://127.0.0.1:9200/_cat/status
