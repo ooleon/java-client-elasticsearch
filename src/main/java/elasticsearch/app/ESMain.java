@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 //@Service
 public class ESMain {
+
 	public static void main(String[] args) throws Exception{
 	app();
 	}
@@ -56,9 +57,11 @@ public class ESMain {
 	}
 	public static void app()  throws Exception {
 		{
+			String clusterName = "my-application";
+
 			ESTransportClient esTransportClient = new ESTransportClient();
-			Client client = esTransportClient.getClient(
-					"elasticsearch_my_cluster_leo", "127.0.0.1", 9300).get();
+//			Client client = esTransportClient.getClient("elasticsearch_my_cluster_leo", "127.0.0.1", 9300).get();
+			Client client = esTransportClient.getClient( clusterName , "127.0.0.1", 9300).get();
 
 			CountService countService = new CountService(client);
 			DataService dataService = new DataService(client);

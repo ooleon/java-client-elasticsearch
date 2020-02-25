@@ -15,7 +15,7 @@
 # Use a descriptive name for your cluster:
 #
 #cluster.name: my-application
-cluster.name: elasticsearch_my_cluster_leo
+cluster.name: my-application
 
 #xpack.security.transport.filter.allow: 127.0.0.1
 #xpack.security.enabled: false
