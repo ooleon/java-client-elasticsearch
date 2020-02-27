@@ -84,7 +84,7 @@ jobs:
       run: curl http://127.0.0.1:9200/_cat/indices
 
     - name: Agregar test indice
-      run: curl -XPOST http://127.0.0.1:9200/test/ -d '{}'
+      run: curl -X POST http://127.0.0.1:9200/test/ -d '{}'
 
     - name: Curl Indices
       run: curl http://127.0.0.1:9200/_cat/indices
