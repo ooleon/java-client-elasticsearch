@@ -80,7 +80,7 @@ jobs:
     - name: Curl Indices
       run: curl http://127.0.0.1:9200/_cat/indices
 
-    - name: Agregar test indice PUT
+    - name: Agregar test  indice PUT
       run: curl -X PUT http://127.0.0.1:9200/test/
 
     - name: Curl Indices
