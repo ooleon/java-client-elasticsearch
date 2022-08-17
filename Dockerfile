@@ -4,7 +4,8 @@ FROM maven:alpine
 
 LABEL maintainer "https://github.com/ooleon"
 
-ENV STACK=5.6.16
+ENV STACK=7.16.2
+#ENV STACK=5.6.16
 
 # elasticsearch
 # RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:5.6.16
@@ -28,7 +29,8 @@ RUN ls -l
 RUN cd /home/runner/work/_elasticsearch
 
 #RUN wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
-WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
+#WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
+WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.16.2/bin/
 
 RUN elasticsearch
 
