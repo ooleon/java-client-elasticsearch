@@ -32,7 +32,8 @@ import elasticsearch.app.ESMain;
 public class ESMainTest {
 
 	@Test
-	public void test(){
+	public void testESMain_app(){
+        
         try {
             ESMain.app();
         } catch (Exception e) {

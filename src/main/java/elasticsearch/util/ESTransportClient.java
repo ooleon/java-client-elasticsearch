@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 
 /**
@@ -22,7 +22,7 @@ public class ESTransportClient {
 			Settings settings = Settings.builder().put("cluster.name", clusterName).put("client.transport.sniff", true)
 					.build();
 			TransportClient client = new PreBuiltTransportClient(settings);
-			client.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), port));
+			client.addTransportAddress(new TransportAddress(InetAddress.getByName(host), port));
 			return Optional.of(client);
 		} catch (Exception e) {
 			e.printStackTrace();

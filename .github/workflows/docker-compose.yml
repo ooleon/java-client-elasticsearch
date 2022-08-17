@@ -92,7 +92,7 @@ jobs:
     - name: Run the mvn ESMainTest
       run: mvn test -B -Dtest=ESMainTest test
 
-    - name: Run curl elastic cat/status
+    - name: Run curl elastic 9200 cat/status
       run: curl http://127.0.0.1:9200/_cat/status
 
     - name: Run curl elastic 9300 cat/status
