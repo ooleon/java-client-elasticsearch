@@ -1,6 +1,6 @@
 package elasticsearch.service;
 
-import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
+import static org.elasticsearch.xcontent.XContentFactory.*;
 
 import java.io.IOException;
 import java.util.Date;

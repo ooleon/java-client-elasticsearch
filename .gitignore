@@ -8,6 +8,7 @@ project/plugins/project/*
 project/plugins/target/*
 project/target/*
 target/*
+.vscode/*
 .idea
 .idea/*
 *.iml
