@@ -16,7 +16,7 @@
 	<name>es-7.x-java-client</name>
 	<url>http://maven.apache.org</url>
     <description>Projeto de exemplo com Spring Boot Java JDK8 para mostrar uso de TDD, BDD, Test unitarios, Test de
-        exception, com algumas tecnologias como Servicios Rest, JPA, h2, elastic search,
+        exception, com algumas tecnologias como Servicios Rest, JPA, h2, ElasticSearch.
     </description>
 
     <properties>
