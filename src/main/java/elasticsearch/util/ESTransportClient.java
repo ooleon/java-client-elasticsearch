@@ -2,8 +2,7 @@ package elasticsearch.util;
 
 import java.net.InetAddress;
 import java.util.Optional;
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
@@ -15,7 +14,7 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
  *
  */
 public class ESTransportClient {
-	private final static Logger logger = Logger.getLogger(ESTransportClient.class);
+	private final static Logger logger = LogManager.getLogger(ESTransportClient.class);
 
 	public Optional<Client> getClient(String clusterName, String host, int port) {
 		try {

@@ -1,3 +1,4 @@
+version: "3.8"
 name: Docker elasticsearch-action@v1 Image CI
 
 on: [push]
