@@ -1,10 +1,12 @@
 ### Docker Image
 FROM maven:alpine
 #FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+#FROM docker.elastic.co/elasticsearch/elasticsearch:7.16.2
 
 LABEL maintainer "https://github.com/ooleon"
 
-ENV STACK=7.16.2
+ENV STACK=7.17.6
+#ENV STACK=7.16.2
 #ENV STACK=5.6.16
 
 # elasticsearch
@@ -30,7 +32,9 @@ RUN cd /home/runner/work/_elasticsearch
 
 #RUN wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
 #WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
-WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.16.2/bin/
+RUN wget --progress=bar:force -O elasticsearch-$STACK.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$STACK.tar.gz
+RUN  tar -xzf elasticsearch-$STACK.tar.gz
+WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-$STACK/bin/
 
 RUN elasticsearch
 
