@@ -1,13 +1,14 @@
 ### Docker Image
-#FROM maven:alpine
-#FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
-FROM docker.elastic.co/elasticsearch/elasticsearch:7.16.2
+FROM ooleon/maven:alpine as mvnstage
 
-LABEL maintainer "https://github.com/ooleon"
 
+
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
+ENV DEBIAN_FRONTEND=noninteractive
 ENV STACK=7.17.6
 #ENV STACK=7.16.2
 #ENV STACK=5.6.16
+
 
 # elasticsearch
 # RUN -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:5.6.16
@@ -17,18 +18,27 @@ ENV STACK=7.17.6
 
 # Run the Docker image ESMainTest
 # RUN mvn test -Dtest=ESMainTest test
-WORKDIR /home/runner/work/
+WORKDIR /home/runner/work/app
 # WORKDIR /home/runner/work/
 
-RUN mkdir _elasticsearch
+# RUN mkdir app
 
-RUN chmod 777 _elasticsearch
+# RUN chmod 777 app
+LABEL maintainer "https://github.com/ooleon"
 
 RUN pwd
 
 RUN ls -l
 
-RUN cd /home/runner/work/_elasticsearch
+# RUN cd /home/runner/work/app
+
+COPY . .
+
+RUN mvn -e -B dependency:resolve
+RUN mvn -e -B package
+
+CMD [ "mvn", "test", "-Dtest=ESMainTest", "test" ]
+#FROM ooleon/eclipse-temurin:latest
 
 #RUN wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
 

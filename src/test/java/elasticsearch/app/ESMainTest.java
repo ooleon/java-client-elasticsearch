@@ -32,6 +32,21 @@ import elasticsearch.app.ESMain;
 public class ESMainTest {
 
 	@Test
+	public void contextUp(){
+        System.out.println( "Configuracion contextUp" );
+	}
+
+	@Test
+	public void contextUp1(){
+        System.out.println( "Configuracion 1 contextUp" );
+	}
+
+	@Test
+	public void contextUp2(){
+        System.out.println( "Configuracion 2 contextUp" );
+	}
+
+//    @Test
 	public void testESMain_app(){
         
         try {
