@@ -43,6 +43,8 @@ cluster.name: docker-cluster
 #
 #path.logs: /path/to/logs
 path.logs: /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/logs/logs
+#path.logs: /opt/github/ws/elasticsearch-7.16.2/logs
+
 #
 # ----------------------------------- Memory -----------------------------------
 #

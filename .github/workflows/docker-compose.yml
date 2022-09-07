@@ -80,27 +80,27 @@ jobs:
     - name: Run ss -tulw (observe the port 9300)
       run: ss -tulw
 
-    - name: Curl Cat
-      run: curl http://127.0.0.1:9200/_cat/
+#    - name: Curl Cat
+#      run: curl http://127.0.0.1:9200/_cat/
 
-    - name: Curl Indices
-      run: curl http://127.0.0.1:9200/_cat/indices
+#    - name: Curl Indices
+#      run: curl http://127.0.0.1:9200/_cat/indices
 
-    - name: Agregar test  indice PUT
-      run: curl -X PUT http://127.0.0.1:9200/test/
+#    - name: Agregar test  indice PUT
+#      run: curl -X PUT http://127.0.0.1:9200/test/
 
-    - name: Curl Indices
-      run: curl http://127.0.0.1:9200/_cat/indices
+#    - name: Curl Indices
+#      run: curl http://127.0.0.1:9200/_cat/indices
 
-    - name: Run curl elastic cat/health verbose
-      run: curl http://127.0.0.1:9200/_cat/health?v
+#    - name: Run curl elastic cat/health verbose
+#      run: curl http://127.0.0.1:9200/_cat/health?v
 
-    - name: Run the mvn ESMainTest
-      run: mvn test -B -Dtest=ESMainTest test
+#    - name: Run the mvn ESMainTest
+#      run: mvn test -B -Dtest=ESMainTest test
 
-    - name: Run curl elastic 9200 cat/status
-      run: curl http://127.0.0.1:9200/_cat/status
+#    - name: Run curl elastic 9200 cat/status
+#      run: curl http://127.0.0.1:9200/_cat/status
 
-    - name: Run curl elastic 9300 cat/status
-      run: curl http://127.0.0.1:9300/_cat/status
+#    - name: Run curl elastic 9300 cat/status
+#      run: curl http://127.0.0.1:9300/_cat/status
 
