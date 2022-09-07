@@ -12,6 +12,9 @@ jobs:
     - name: actions/checkout v2
       uses: actions/checkout@v2
 
+    - name: discovery elasticsearch
+      run: cd /home/runner/work/java-client-elasticsearch
+
     - name: Run ls Test
       run: ls -l
 
@@ -22,32 +25,31 @@ jobs:
       run: ls -l
 
     - name: wget tar.gz
-      run: wget --progress=bar:force -O elasticsearch-7.16.2.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.16.2-linux-x86_64.tar.gz
+      run: wget --progress=bar:force -O elasticsearch-7.17.6.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.6-linux-x86_64.tar.gz
       #run: wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
 
     - name: tar tar.gz
-      run: tar -xzf elasticsearch-7.16.2.tar.gz
+      run: tar -xzf elasticsearch-7.17.6.tar.gz
 
     - name: Run ls Test
       run: ls -l
 
     - name: cat elasticsearch.yml
-      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.16.2/config/elasticsearch.yml
-#      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/config/elasticsearch.yml
+      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.17.6/config/elasticsearch.yml
 
     - name: cp elasticsearch.yml
-      run: cp /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch.yml /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.16.2/config/elasticsearch.yml
+      run: cp /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch.yml /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.17.6/config/elasticsearch.yml
 #      run: cp /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch.yml /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/config/elasticsearch.yml
 
     - name: cat elasticsearch.yml
-      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.16.2/config/elasticsearch.yml
+      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.17.6/config/elasticsearch.yml
 #      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/config/elasticsearch.yml
 
     - name: pwd
       run: pwd
 
     - name: RUN elasticsearch in background
-      run: /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.16.2/bin/./elasticsearch &
+      run: /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.17.6/bin/./elasticsearch &
 #      run: /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/./elasticsearch &
 
     - name: Download Spring Boot (mvn)
