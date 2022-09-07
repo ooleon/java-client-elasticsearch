@@ -27,7 +27,6 @@ jobs:
 
     - name: tar tar.gz
       run: tar -xzf elasticsearch-7.16.2.tar.gz
-      #run: tar -xzf elasticsearch-5.6.16.tar.gz
 
     - name: Run ls Test
       run: ls -l
