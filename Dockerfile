@@ -1,7 +1,7 @@
 ### Docker Image
-FROM maven:alpine
+#FROM maven:alpine
 #FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
-#FROM docker.elastic.co/elasticsearch/elasticsearch:7.16.2
+FROM docker.elastic.co/elasticsearch/elasticsearch:7.16.2
 
 LABEL maintainer "https://github.com/ooleon"
 
@@ -31,22 +31,20 @@ RUN ls -l
 RUN cd /home/runner/work/_elasticsearch
 
 #RUN wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
-#WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/
-RUN wget --progress=bar:force -O elasticsearch-$STACK.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$STACK.tar.gz
-RUN  tar -xzf elasticsearch-$STACK.tar.gz
-WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-$STACK/bin/
 
-RUN elasticsearch
+# RUN wget -O elasticsearch.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.6-linux-x86_64.tar.gz
 
-#RUN  tar -xzf elasticsearch-$STACK.tar.gz
+# RUN  tar -xzf elasticsearch.tar.gz
+#WORKDIR /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-$STACK/bin/
 
-#RUN ls -l
+# RUN elasticsearch &
+RUN ls -l
 
 RUN pwd
 
 RUN ls -lR
 
-#RUN mvn test -Dtest=ESMainTest test
+# RUN mvn test -Dtest=ESMainTest test
 
 #RUN apk add --no-cache openjdk8-jre tini su-exec
 
