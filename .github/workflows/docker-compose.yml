@@ -12,96 +12,18 @@ jobs:
     - name: actions/checkout v2
       uses: actions/checkout@v2
 
-    - name: discovery elasticsearch
-      run: cd /home/runner/work/java-client-elasticsearch
+    - name: Configure sysctl limits
+      run: |
+        sudo swapoff -a
+        sudo sysctl -w vm.swappiness=1
+        sudo sysctl -w fs.file-max=262144
+        sudo sysctl -w vm.max_map_count=262144
 
-    - name: Run ls Test
-      run: ls -l
-
-    - name: pwd
-      run: pwd
-
-    - name: Run ls Test
-      run: ls -l
-
-    - name: wget tar.gz
-      run: wget --progress=bar:force -O elasticsearch-7.17.6.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.6-linux-x86_64.tar.gz
-      #run: wget --progress=bar:force -O elasticsearch-5.6.16.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz
-
-    - name: tar tar.gz
-      run: tar -xzf elasticsearch-7.17.6.tar.gz
-
-    - name: Run ls Test
-      run: ls -l
-
-    - name: cat elasticsearch.yml
-      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.17.6/config/elasticsearch.yml
-
-    - name: cp elasticsearch.yml
-      run: cp /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch.yml /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.17.6/config/elasticsearch.yml
-#      run: cp /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch.yml /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/config/elasticsearch.yml
-
-    - name: cat elasticsearch.yml
-      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.17.6/config/elasticsearch.yml
-#      run: cat /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/config/elasticsearch.yml
-
-    - name: pwd
-      run: pwd
-
-    - name: RUN elasticsearch in background
-      run: /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-7.17.6/bin/./elasticsearch &
-#      run: /home/runner/work/java-client-elasticsearch/java-client-elasticsearch/elasticsearch-5.6.16/bin/./elasticsearch &
-
-    - name: Download Spring Boot (mvn)
-      run: mvn test -B -Dtest=ESMainTest test
-
-    - name: pwd
-      run: pwd
-
-    - name: Run ls Test
-      run: ls -l
-
-    # - uses: getong/elasticsearch-action@v1
-    #   with:
-    #     elasticsearch version: '5.6.16'
-    #     host port: 9200
-    #     container port: 9300
-    #     discovery type: 'single-node'
-
-    # - name: Run the Docker image mvn -v
-    #   run: mvn -v
-
-    # - name: Test pwd
-    #   run: pwd
-
-    - name: Run ls Test
-      run: ls -l
-           #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
-    - name: Run ss -tulw (observe the port 9300)
-      run: ss -tulw
-
-#    - name: Curl Cat
-#      run: curl http://127.0.0.1:9200/_cat/
-
-#    - name: Curl Indices
-#      run: curl http://127.0.0.1:9200/_cat/indices
-
-#    - name: Agregar test  indice PUT
-#      run: curl -X PUT http://127.0.0.1:9200/test/
-
-#    - name: Curl Indices
-#      run: curl http://127.0.0.1:9200/_cat/indices
-
-#    - name: Run curl elastic cat/health verbose
-#      run: curl http://127.0.0.1:9200/_cat/health?v
-
-#    - name: Run the mvn ESMainTest
-#      run: mvn test -B -Dtest=ESMainTest test
-
-#    - name: Run curl elastic 9200 cat/status
-#      run: curl http://127.0.0.1:9200/_cat/status
-
-#    - name: Run curl elastic 9300 cat/status
-#      run: curl http://127.0.0.1:9300/_cat/status
-
+    - uses: getong/elasticsearch-action@v1.2
+      with:
+        elasticsearch version: '7.6.1'
+        host port: 9200
+        container port: 9200
+        host node port: 9300
+        node port: 9300
+        discovery type: 'single-node'
