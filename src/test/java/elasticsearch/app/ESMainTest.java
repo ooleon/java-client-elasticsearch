@@ -31,22 +31,22 @@ import elasticsearch.app.ESMain;
 @SpringBootTest
 public class ESMainTest {
 
-	@Test
+	/* @Test */
 	public void contextUp(){
         System.out.println( "Configuracion contextUp" );
 	}
 
-	@Test
+	/* @Test */
 	public void contextUp1(){
         System.out.println( "Configuracion 1 contextUp" );
 	}
 
-	@Test
+	/* @Test */
 	public void contextUp2(){
         System.out.println( "Configuracion 2 contextUp" );
 	}
 
-//    @Test
+   @Test
 	public void testESMain_app(){
         
         try {
