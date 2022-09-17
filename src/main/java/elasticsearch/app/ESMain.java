@@ -57,7 +57,7 @@ public class ESMain {
 	}
 	public static void app()  throws Exception {
 		{
-			String clusterName = "docker-cluster";
+			String clusterName = "docker-elasticsearch";
 
 			ESTransportClient esTransportClient = new ESTransportClient();
 			Client client = esTransportClient.getClient( clusterName , "127.0.0.1", 9300).get();

@@ -27,3 +27,7 @@ jobs:
         host node port: 9300
         node port: 9300
         discovery type: 'single-node'
+
+    - name: ESMainTest
+      run: |
+        mvn test -Dtest=ESMainTest test
