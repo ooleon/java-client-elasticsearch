@@ -30,4 +30,8 @@ jobs:
 
     - name: ESMainTest
       run: |
+        curl -XPOST localhost:9200/test/tweet   -d '{"name":"Monica", "job":"consultant" , "location":"Brasil", "age":28}'
+        curl -XPOST localhost:9200/test/tweet   -d '{"name":"Leo", "job":"consultant" , "location":"Venezuela", "age":42}'
+        curl -XPOST localhost:9200/test/tweet   -d '{"name":"Mariela", "job":"consultant" , "location":"America", "age":25}'
         mvn test -Dtest=ESMainTest test
+        
