@@ -32,28 +32,28 @@ import elasticsearch.app.ESMain;
 public class ESMainTest {
 
 	/* @Test */
-	public void contextUp(){
-        System.out.println( "Configuracion contextUp" );
+	public void contextUp() {
+		System.out.println("Configuracion contextUp");
 	}
 
 	/* @Test */
-	public void contextUp1(){
-        System.out.println( "Configuracion 1 contextUp" );
+	public void contextUp1() {
+		System.out.println("Configuracion 1 contextUp");
 	}
 
 	/* @Test */
-	public void contextUp2(){
-        System.out.println( "Configuracion 2 contextUp" );
+	public void contextUp2() {
+		System.out.println("Configuracion 2 contextUp");
 	}
 
-   @Test
-	public void testESMain_app(){
-        
-        try {
-            ESMain.app();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println( ESMain.test() );
+	@Test
+	public void testESMain_app() throws Exception {
+		ESMain.app2();
+		/* try {
+			ESMain.app();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} */
+		System.out.println(ESMain.test());
 	}
 }

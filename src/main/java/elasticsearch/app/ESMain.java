@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 public class ESMain {
 
 	public static void main(String[] args) throws Exception{
-	app();
+		app();
 	}
 
 	public static String test(){
@@ -55,12 +55,16 @@ public class ESMain {
 		// ingest batch of records
 		ingestService.ingest("test", "data", Arrays.asList(json3, json4));
 	}
+
 	public static void app()  throws Exception {
 		{
-			String clusterName = "docker-elasticsearch";
+			String clusterName = "docker-cluster";
+			String host = "127.0.0.1";
+			int port = 9300;
 
 			ESTransportClient esTransportClient = new ESTransportClient();
-			Client client = esTransportClient.getClient( clusterName , "127.0.0.1", 9300).get();
+			Client client = esTransportClient.getClient( clusterName , host, port).get();
+			System.out.println("host: " + host + " port: " + port);
 			
 
 			CountService countService = new CountService(client);
@@ -69,9 +73,9 @@ public class ESMain {
 			DeleteService deleteService = new DeleteService(client);
 
 			// count
-			System.out.println("\ngetMatchAllQueryCount from ES::: " + countService.getMatchAllQueryCount());
-			System.out.println("\ngetBoolQueryCount from ES::: " + countService.getBoolQueryCount());
-			System.out.println("\ngetPhraseQueryCount from ES::: " + countService.getPhraseQueryCount());
+			System.out.println("\nget MatchAllQueryCount from ES::: \n" + countService.getMatchAllQueryCount());
+			System.out.println("\nget BoolQueryCount from ES::: \n" + countService.getBoolQueryCount());
+			System.out.println("\nget PhraseQueryCount from ES::: \n" + countService.getPhraseQueryCount());
 
 			// Data
 			System.out.println("\ngetMatchAllQueryData from ES::: ");

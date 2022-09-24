@@ -1,5 +1,5 @@
 # es-7.x-java-client
- Prerequisite : Java 8 and Later version 
+ Prerequisite : Java 8 or Later version 
 
 ### Start ElasticSearch
 1) Download elasticsearch from [here](https://www.elastic.co/downloads/elasticsearch)   

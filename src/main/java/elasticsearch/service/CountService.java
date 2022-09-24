@@ -14,6 +14,7 @@ import org.apache.lucene.search.TotalHits;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
 
+//@Service
 public class CountService {
 
 	Client client;
@@ -39,7 +40,7 @@ public class CountService {
 	}
 
 	public long getPhraseQueryCount() {
-		QueryBuilder query = matchPhraseQuery("name", "revanth");
+		QueryBuilder query = matchPhraseQuery("name", "Monica");
 		System.out.println("getPhraseQueryCount query =>" + query.toString());
 		long count = ((TotalHits) client.prepareSearch("test").setQuery(query).setSize(0).execute().actionGet().getHits()
 				.getTotalHits()).value;
