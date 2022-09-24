@@ -48,7 +48,7 @@ public class ESMainTest {
 
 	@Test
 	public void testESMain_app() throws Exception {
-		ESMain.app2();
+		ESMain.app();
 		/* try {
 			ESMain.app();
 		} catch (Exception e) {
